@@ -26,12 +26,21 @@ namespace CodeFirst.WebAPI.Controllers
         [HttpPost("cars")]
         public IActionResult AddCar(Car car)
         {
-            if (ModelState.IsValid)
-            {
-                _carRepository.CreateCar(car);
-                return Ok(car);
-            }
-            return BadRequest();
+            _carRepository.CreateCar(car);
+            _carRepository.Save();
+
+            return Ok(car);
+        }
+
+        [HttpDelete("car")]
+        public async Task<IActionResult> DeleteCar(int id)
+        {
+            var carDetails = await _carRepository.GetByIdAsync(id);
+            if (carDetails == null) return View("Error");
+
+            _carRepository.DeleteCar(carDetails);
+
+            return NoContent();
         }
     }
 }

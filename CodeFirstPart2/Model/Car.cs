@@ -17,6 +17,6 @@ namespace CodeFirstPart2.Model
         public int Chassis { get; set; }
         public int Number { get; set; }
 
-        public Engine Engine { get; set; } // mozemo nullable i onda migracija update i dodam seed
+        public Engine? Engine { get; set; } // mozemo nullable i onda migracija update i dodam seed
     }
 }

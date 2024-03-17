@@ -21,18 +21,14 @@ namespace CodeFirst.Service.Repository
 
         public bool CreateCar(Car car)
         {
-            _context.Cars.Add(car);
+            _context.Add(car);
             return Save();
         }
 
         public bool DeleteCar(Car car)
         {
-            throw new NotImplementedException();
-        }
-
-        public bool DeleteCar(int carId)
-        {
-            throw new NotImplementedException();
+            _context.Remove(car);
+            return Save();
         }
 
         public async Task<IEnumerable<Car>> GetCars()
@@ -49,6 +45,11 @@ namespace CodeFirst.Service.Repository
         {
             var saved = _context.SaveChanges();
             return saved > 0 ? true : false;
+        }
+
+        public async Task<Car> GetByIdAsync(int id)
+        {
+            return await _context.Cars.FirstOrDefaultAsync(c => c.Id == id);
         }
     }
 }
