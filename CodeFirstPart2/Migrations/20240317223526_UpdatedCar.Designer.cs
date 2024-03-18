@@ -3,6 +3,7 @@ using CodeFirstPart2;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CodeFirstPart2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240317223526_UpdatedCar")]
+    partial class UpdatedCar
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,38 +56,6 @@ namespace CodeFirstPart2.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cars");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Brand = "Audi",
-                            Chassis = 123,
-                            Color = "Black",
-                            Model = "A6",
-                            Number = 5,
-                            Year = 2020
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Brand = "BMW",
-                            Chassis = 321,
-                            Color = "Blue",
-                            Model = "520",
-                            Number = 6,
-                            Year = 2020
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Brand = "Mercedes",
-                            Chassis = 231,
-                            Color = "White",
-                            Model = "E220",
-                            Number = 7,
-                            Year = 2020
-                        });
                 });
 
             modelBuilder.Entity("CodeFirstPart2.Model.Engine", b =>

@@ -1,7 +1,9 @@
 ﻿using CodeFirst.Service.Interfaces;
 using CodeFirst.Service.Repository;
 using CodeFirstPart2.Model;
+using Dtos;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace CodeFirst.WebAPI.Controllers
 {
@@ -23,13 +25,30 @@ namespace CodeFirst.WebAPI.Controllers
             return Ok(cars);
         }
 
-        [HttpPost("cars")]
-        public IActionResult AddCar(Car car)
+        [HttpPost]
+        public async Task<IActionResult> AddCar(CreateCarDto carDto)
         {
-            _carRepository.CreateCar(car);
-            _carRepository.Save();
+            if (ModelState.IsValid)
+            {
+                var car = new Car
+                {
+                    Brand = carDto.Brand,
+                    Model = carDto.Model,
+                    Color = carDto.Color,
+                    Year = carDto.Year,
+                    Chassis = carDto.Chassis,
+                    Number = carDto.Number,
+                };
 
-            return Ok(car);
+                _carRepository.CreateCar(car);
+                return Ok(car);
+            }
+            else
+            {
+                ModelState.AddModelError("", "Photo upload failed");
+            }
+
+            return View(carDto);
         }
 
         [HttpDelete("car")]

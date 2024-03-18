@@ -23,13 +23,13 @@ namespace CodeFirstPart2
             optionsBuilder.UseSqlServer("Data Source=IKNEZEVIC-INT;Database=Car;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;User=sa;Password=14092001;");
         }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Car>().HasData(
-        //        new Car { Id = 1, Brand = "Audi", Model = "A6", Color = "Black", Year = 2020, Chassis = 123, Number = 5 },
-        //        new Car { Id = 2, Brand = "BMW", Model = "520", Color = "Blue", Year = 2020, Chassis = 321, Number = 6 },
-        //        new Car { Id = 3, Brand = "Mercedes", Model = "E220", Color = "White", Year = 2020, Chassis = 231, Number = 7 }
-        //    );
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Car>().HasData(
+                new Car { Id = 1, Brand = "Audi", Model = "A6", Color = "Black", Year = 2020, Chassis = 123, Number = 5 },
+                new Car { Id = 2, Brand = "BMW", Model = "520", Color = "Blue", Year = 2020, Chassis = 321, Number = 6 },
+                new Car { Id = 3, Brand = "Mercedes", Model = "E220", Color = "White", Year = 2020, Chassis = 231, Number = 7 }
+            );
+        }
     }
 }
