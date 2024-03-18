@@ -21,7 +21,7 @@ namespace CodeFirst.Service.Repository
 
         public bool CreateCar(Car car)
         {
-            _context.Add(car);
+            _context.AddAsync(car);
             return Save();
         }
 
@@ -38,7 +38,8 @@ namespace CodeFirst.Service.Repository
 
         public bool UpdateCar(Car car)
         {
-            throw new NotImplementedException();
+            _context.Update(car);
+            return Save();
         }
 
         public bool Save()
