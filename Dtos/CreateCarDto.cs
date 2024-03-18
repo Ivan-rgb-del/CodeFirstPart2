@@ -16,6 +16,6 @@ namespace Dtos
         public int Year { get; set; }
         public int Chassis { get; set; }
         public int Number { get; set; }
-        public int EngineId { get; set; }
+        public Engine Engine { get; set; }
     }
 }

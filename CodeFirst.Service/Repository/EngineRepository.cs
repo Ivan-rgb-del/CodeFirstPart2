@@ -20,7 +20,8 @@ namespace CodeFirst.Service.Repository
 
         public bool CreateEngine(Engine engine)
         {
-            throw new NotImplementedException();
+            _context.AddAsync(engine);
+            return Save();
         }
 
         public bool DeleteEngine(Engine engine)
@@ -40,7 +41,8 @@ namespace CodeFirst.Service.Repository
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
         }
 
         public bool UpdateEngine(Engine engine)

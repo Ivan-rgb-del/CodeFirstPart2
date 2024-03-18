@@ -13,6 +13,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<ICarRepository, CarRepository>();
+builder.Services.AddTransient<IEngineRepository, EngineRepository>();
+builder.Services.AddTransient<IEngineTypeRepository, EngineTypeRepository>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
