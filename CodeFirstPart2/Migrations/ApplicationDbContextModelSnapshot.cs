@@ -149,7 +149,7 @@ namespace CodeFirstPart2.Migrations
             modelBuilder.Entity("CodeFirstPart2.Model.Engine", b =>
                 {
                     b.HasOne("CodeFirstPart2.Model.Car", "Car")
-                        .WithOne("Engine")
+                        .WithOne("EngineId")
                         .HasForeignKey("CodeFirstPart2.Model.Engine", "CarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -167,7 +167,7 @@ namespace CodeFirstPart2.Migrations
 
             modelBuilder.Entity("CodeFirstPart2.Model.Car", b =>
                 {
-                    b.Navigation("Engine");
+                    b.Navigation("EngineId");
                 });
 
             modelBuilder.Entity("CodeFirstPart2.Model.EngineType", b =>
