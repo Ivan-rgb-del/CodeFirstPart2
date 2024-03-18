@@ -1,6 +1,7 @@
 ﻿using CodeFirst.Service.Interfaces;
 using CodeFirstPart2;
 using CodeFirstPart2.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,17 +27,18 @@ namespace CodeFirst.Service.Repository
 
         public bool DeleteEngine(Engine engine)
         {
-            throw new NotImplementedException();
+            _context.Remove(engine);
+            return Save();
         }
 
-        public Task<Engine> GetByIdAsync(int id)
+        public async Task<Engine> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Engines.FirstOrDefaultAsync(e => e.Id == id);
         }
 
-        public Task<IEnumerable<Engine>> GetEngines()
+        public async Task<IEnumerable<Engine>> GetEngines()
         {
-            throw new NotImplementedException();
+            return await _context.Engines.ToListAsync();
         }
 
         public bool Save()
@@ -47,7 +49,8 @@ namespace CodeFirst.Service.Repository
 
         public bool UpdateEngine(Engine engine)
         {
-            throw new NotImplementedException();
+            _context.Update(engine);
+            return Save();
         }
     }
 }
