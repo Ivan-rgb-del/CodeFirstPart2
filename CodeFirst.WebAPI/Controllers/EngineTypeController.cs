@@ -58,7 +58,7 @@ namespace CodeFirst.WebAPI.Controllers
             return NotFound();
         }
 
-        [HttpDelete("car")]
+        [HttpDelete("engine-type")]
         public async Task<IActionResult> DeleteEngineType(int id)
         {
             var engineType = await _engineTypeRepository.GetByIdAsync(id);

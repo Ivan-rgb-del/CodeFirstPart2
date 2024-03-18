@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Dtos
 {
-    public class CreateEngineDto
+    public class UpdateEngineDto
     {
-        public int Id { get; set; }
         public int Year { get; set; }
         public string MyProperty { get; set; } = string.Empty;
         public int SerialNumber { get; set; }
