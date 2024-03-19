@@ -1,5 +1,6 @@
 ﻿using CodeFirst.Service.Interfaces;
 using CodeFirst.Service.Repository;
+using CodeFirst.Validator;
 using CodeFirstPart2.Model;
 using Dtos;
 using Microsoft.AspNetCore.Mvc;
@@ -14,11 +15,13 @@ namespace CodeFirst.WebAPI.Controllers
     {
         private readonly ICarRepository _carRepository;
         private readonly IEngineRepository _engineRepository;
+        private readonly CarValidator _carValidator;
 
-        public CarController(ICarRepository carRepository, IEngineRepository engineRepository)
+        public CarController(ICarRepository carRepository, IEngineRepository engineRepository, CarValidator carValidator)
         {
             _carRepository = carRepository;
             _engineRepository = engineRepository;
+            _carValidator = carValidator;
         }
 
         [HttpGet("cars")]
@@ -37,6 +40,12 @@ namespace CodeFirst.WebAPI.Controllers
                 if (existingEngine == null)
                 {
                     return BadRequest("Invalid EngineId. Engine with this ID does not exist.");
+                }
+
+                var isValid = await _carValidator.ValidateCarAsync(carDto);
+                if (!isValid)
+                {
+                    return BadRequest("The car model is not available for the given model and year.");
                 }
 
                 var newCar = new Car

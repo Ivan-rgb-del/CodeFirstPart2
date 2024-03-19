@@ -1,5 +1,7 @@
 using CodeFirst.Service.Interfaces;
 using CodeFirst.Service.Repository;
+using CodeFirst.Service.Services;
+using CodeFirst.Validator;
 using CodeFirstPart2;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +17,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<ICarRepository, CarRepository>();
 builder.Services.AddTransient<IEngineRepository, EngineRepository>();
 builder.Services.AddTransient<IEngineTypeRepository, EngineTypeRepository>();
+builder.Services.AddHttpClient<ICarValidationService, CarValidationService>();
+builder.Services.AddScoped<CarValidator>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
