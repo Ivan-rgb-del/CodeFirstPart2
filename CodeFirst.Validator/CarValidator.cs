@@ -9,8 +9,7 @@ using System.Threading.Tasks;
 
 namespace CodeFirst.Validator
 {
-    public class CarValidator
-    {
+    public class CarValidator    {
         private readonly CarValidationService _validationService;
 
         public CarValidator(ICarValidationService validationService)

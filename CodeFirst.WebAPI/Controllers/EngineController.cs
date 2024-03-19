@@ -2,6 +2,7 @@
 using CodeFirst.Service.Repository;
 using CodeFirstPart2.Model;
 using Dtos;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CodeFirst.WebAPI.Controllers
@@ -11,14 +12,16 @@ namespace CodeFirst.WebAPI.Controllers
     public class EngineController : Controller
     {
         private readonly IEngineRepository _engineRepository;
+        private readonly IValidator<Engine> _validator;
         private readonly ICarRepository _carRepository;
         private readonly IEngineTypeRepository _engineTypeRepository;
 
-        public EngineController(IEngineRepository engineRepository, ICarRepository carRepository, IEngineTypeRepository engineTypeRepository)
+        public EngineController(IEngineRepository engineRepository, ICarRepository carRepository, IEngineTypeRepository engineTypeRepository, IValidator<Engine> validator)
         {
             _engineRepository = engineRepository;
             _carRepository = carRepository;
             _engineTypeRepository = engineTypeRepository;
+            _validator = validator;
         }
 
         [HttpGet("engines")]
@@ -44,6 +47,13 @@ namespace CodeFirst.WebAPI.Controllers
                 };
 
                 _engineRepository.CreateEngine(engine);
+                var validateResult = await _validator.ValidateAsync(engine);
+
+                if (!validateResult.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
                 return Ok(engine);
             }
 
