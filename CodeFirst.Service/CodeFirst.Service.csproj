@@ -10,8 +10,4 @@
     <ProjectReference Include="..\CodeFirstPart2\CodeFirstPart2.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>

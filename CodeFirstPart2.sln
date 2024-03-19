@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeFirst.Service", "CodeFi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dto", "Dto", "{50BB0307-F3B6-4ED3-9EDF-CF06D4DF2758}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dtos", "Dtos\Dtos.csproj", "{C9041B38-8A38-4973-BB41-75A97C5E85AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dtos", "Dtos\Dtos.csproj", "{C9041B38-8A38-4973-BB41-75A97C5E85AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Validator", "Validator", "{1B951DE1-1C15-4A66-9E0A-1CC5B7215439}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

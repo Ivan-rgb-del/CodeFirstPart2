@@ -31,5 +31,18 @@ namespace CodeFirstPart2
         //        new Car { Id = 3, Brand = "Mercedes", Model = "E220", Color = "White", Year = 2020, Chassis = 231, Number = 7 }
         //    );
         //}
+
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Car>()
+        //        .HasOne(c => c.Engine)
+        //        .WithOne(e => e.Car)
+        //        .HasForeignKey<Engine>(e => e.CarId);
+
+        //    modelBuilder.Entity<Engine>()
+        //        .HasOne(e => e.EngineType)
+        //        .WithMany(et => et.Engines)
+        //        .HasForeignKey(e => e.EngineTypeId);
+        //}
     }
 }

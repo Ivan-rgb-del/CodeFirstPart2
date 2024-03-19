@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CarValidator\CarValidator.csproj" />
     <ProjectReference Include="..\CodeFirst.Service\CodeFirst.Service.csproj" />
     <ProjectReference Include="..\CodeFirstPart2\CodeFirstPart2.csproj" />
     <ProjectReference Include="..\Dtos\Dtos.csproj" />

@@ -39,7 +39,7 @@ namespace CodeFirst.WebAPI.Controllers
                     return BadRequest("Invalid EngineId. Engine with this ID does not exist.");
                 }
 
-                var car = new Car
+                var newCar = new Car
                 {
                     Brand = carDto.Brand,
                     Model = carDto.Model,
@@ -50,11 +50,10 @@ namespace CodeFirst.WebAPI.Controllers
                     EngineId = carDto.EngineId,
                 };
 
-                _carRepository.CreateCar(car);
-                return Ok(car);
+                _carRepository.CreateCar(newCar);
+                return Ok(newCar);
             }
 
-            //return View(carDto);
             return BadRequest(ModelState);
         }
 
