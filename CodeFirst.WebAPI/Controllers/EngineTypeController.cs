@@ -32,7 +32,8 @@ namespace CodeFirst.WebAPI.Controllers
                 var engineType = new EngineType
                 {
                     Model = engineTypeDto.Model,
-                    Name = engineTypeDto.Name
+                    Name = engineTypeDto.Name,
+                    //Engines = engineTypeDto.Engines,
                 };
 
                 _engineTypeRepository.CreateEngineType(engineType);

@@ -17,6 +17,7 @@ namespace CodeFirstPart2.Model
         public int Chassis { get; set; }
         public int Number { get; set; }
 
-        public Engine? EngineId { get; set; }
+        public int EngineId { get; set; }
+        public Engine? Engine { get; set; }
     }
 }

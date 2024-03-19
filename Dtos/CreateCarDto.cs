@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Dtos
@@ -16,6 +17,6 @@ namespace Dtos
         public int Year { get; set; }
         public int Chassis { get; set; }
         public int Number { get; set; }
-        public Engine Engine { get; set; }
+        public int EngineId { get; set; }
     }
 }

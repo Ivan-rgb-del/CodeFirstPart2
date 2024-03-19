@@ -13,10 +13,12 @@ namespace CodeFirst.WebAPI.Controllers
     public class CarController : Controller
     {
         private readonly ICarRepository _carRepository;
+        private readonly IEngineRepository _engineRepository;
 
-        public CarController(ICarRepository carRepository)
+        public CarController(ICarRepository carRepository, IEngineRepository engineRepository)
         {
             _carRepository = carRepository;
+            _engineRepository = engineRepository;
         }
 
         [HttpGet("cars")]
@@ -31,6 +33,12 @@ namespace CodeFirst.WebAPI.Controllers
         {
             if (ModelState.IsValid)
             {
+                var existingEngine = await _engineRepository.GetByIdAsync(carDto.EngineId);
+                if (existingEngine == null)
+                {
+                    return BadRequest("Invalid EngineId. Engine with this ID does not exist.");
+                }
+
                 var car = new Car
                 {
                     Brand = carDto.Brand,
@@ -39,13 +47,15 @@ namespace CodeFirst.WebAPI.Controllers
                     Year = carDto.Year,
                     Chassis = carDto.Chassis,
                     Number = carDto.Number,
+                    EngineId = carDto.EngineId,
                 };
 
                 _carRepository.CreateCar(car);
                 return Ok(car);
             }
 
-            return View(carDto);
+            //return View(carDto);
+            return BadRequest(ModelState);
         }
 
         [HttpPut]

@@ -15,6 +15,8 @@ namespace Dtos
         public int SerialNumber { get; set; }
         public string Type { get; set; } = string.Empty;
         //public Car? Car { get; set; }
+        public int CarId { get; set; }
+        public int EngineTypeId { get; set; }
         //public EngineType? EngineType { get; set; }
     }
 }
