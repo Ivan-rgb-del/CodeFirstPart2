@@ -2,6 +2,7 @@
 using CodeFirst.Service.Repository;
 using CodeFirstPart2.Model;
 using Dtos;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CodeFirst.WebAPI.Controllers
@@ -33,10 +34,10 @@ namespace CodeFirst.WebAPI.Controllers
                 {
                     Model = engineTypeDto.Model,
                     Name = engineTypeDto.Name,
-                    //Engines = engineTypeDto.Engines,
                 };
 
                 _engineTypeRepository.CreateEngineType(engineType);
+
                 return Ok(engineType);
             }
 
