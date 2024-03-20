@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dtos", "Dtos\Dtos.csproj", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Validators", "Validators", "{5A2DD98F-4C34-44C0-9561-17113B4F0837}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirst.Validator", "CodeFirst.Validator\CodeFirst.Validator.csproj", "{5347252B-746D-45BE-A60E-B06F51C6B508}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeFirst.Validator", "CodeFirst.Validator\CodeFirst.Validator.csproj", "{5347252B-746D-45BE-A60E-B06F51C6B508}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirst.UnitTests", "CodeFirst.UnitTests\CodeFirst.UnitTests.csproj", "{4723E4EF-15ED-4F6E-B741-DE7AF49685BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{5347252B-746D-45BE-A60E-B06F51C6B508}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5347252B-746D-45BE-A60E-B06F51C6B508}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5347252B-746D-45BE-A60E-B06F51C6B508}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4723E4EF-15ED-4F6E-B741-DE7AF49685BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4723E4EF-15ED-4F6E-B741-DE7AF49685BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4723E4EF-15ED-4F6E-B741-DE7AF49685BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4723E4EF-15ED-4F6E-B741-DE7AF49685BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
